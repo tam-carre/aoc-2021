@@ -8,10 +8,10 @@ answer = fwdness input * depth input
 fwdness :: [Command] -> Int
 fwdness = foldl f 0
   where f fwdness (Fwd n) = fwdness + n
-        f fwdness _ = fwdness
+        f fwdness _       = fwdness
 
 depth :: [Command] -> Int
 depth = foldl f 0
   where f depth (Down n) = depth + n
-        f depth (Up n) = depth - n
-        f depth _ = depth
+        f depth (Up n)   = depth - n
+        f depth _        = depth
