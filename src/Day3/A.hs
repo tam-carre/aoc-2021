@@ -11,11 +11,11 @@ answer = gamma input * epsilon input
 gamma :: [String] -> Int
 gamma = binaryStringToDec . gamma'
 
-gamma' :: [String] -> String
-gamma' = map mostCommon . columns
-
 epsilon :: [String] -> Int
 epsilon = binaryStringToDec . epsilon'
+
+gamma' :: [String] -> String
+gamma' = map mostCommon . columns
 
 epsilon':: [String] -> String
 epsilon' = map reverseBit . gamma'
