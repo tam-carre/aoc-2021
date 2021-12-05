@@ -6,7 +6,7 @@ import Day2.A (fwdness)
 answer :: IO Int
 answer = do
   fwdness' <- fwdness <$> input
-  depth' <- depth <$> input
+  depth'   <- depth <$> input
   return $ fwdness' * depth'
 
 depth :: [Command] -> Int

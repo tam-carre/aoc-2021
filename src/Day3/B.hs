@@ -3,8 +3,11 @@ module Day3.B where
 import Day3.Input (input)
 import Day3.A (binaryStringToDec, gamma', epsilon')
 
-answer :: Int
-answer = oxygenGen input * co2Scrub input
+answer :: IO Int
+answer = do
+  oxygenRating <- oxygenGen <$> input
+  co2Rating    <- co2Scrub <$> input
+  return $ oxygenRating * co2Rating
 
 oxygenGen :: [String] -> Int
 oxygenGen = binaryStringToDec . foldByCriteria gamma'

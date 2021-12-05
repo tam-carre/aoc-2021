@@ -5,8 +5,11 @@ import Data.Char (digitToInt)
 import Data.List
 import Data.Ord
 
-answer :: Int
-answer = gamma input * epsilon input
+answer :: IO Int
+answer = do
+  gammaRate   <- gamma <$> input
+  epsilonRate <- epsilon <$> input
+  return $ gammaRate * epsilonRate
 
 gamma :: [String] -> Int
 gamma = binaryStringToDec . gamma'
