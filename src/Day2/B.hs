@@ -7,12 +7,6 @@ import Utils.General (fst3)
 answer :: Int
 answer = forwardness input * depth input
 
-aim :: [Command] -> Int
-aim = foldl f 0
-  where f aim (Down n) = aim + n
-        f aim (Up n) = aim - n
-        f aim _ = aim
-
 depth :: [Command] -> Int
 depth = fst3 . foldl f ( 0, 0, [] )
   where
