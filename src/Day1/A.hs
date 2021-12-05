@@ -6,9 +6,7 @@ answer :: Int
 answer = countIncreases input
 
 countIncreases :: [Int] -> Int
-countIncreases = countIncreases' 0
-  where countIncreases' total [] = total
-        countIncreases' total [x] = total
-        countIncreases' total (x:y:xs) =
-          let addition = if y - x > 0 then 1 else 0
-          in countIncreases' (total + addition) (y:xs)
+countIncreases [] = 0
+countIncreases (x:xs) = fst . foldl f (0, x) $ xs
+  where f (incrs, prev) x = if x - prev > 0 then (incrs + 1, x)
+                                            else (incrs, x)
