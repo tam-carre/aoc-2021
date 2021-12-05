@@ -1,7 +1,4 @@
-module Day1.Input
-  ( input
-  ) where
-
+module Day1.Input where
 
 input :: [Int]
 input =
