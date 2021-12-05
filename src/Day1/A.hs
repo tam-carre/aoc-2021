@@ -12,4 +12,3 @@ countIncreases = countIncreases' 0
         countIncreases' total (x:y:xs) =
           let addition = if y - x > 0 then 1 else 0
           in countIncreases' (total + addition) (y:xs)
-
