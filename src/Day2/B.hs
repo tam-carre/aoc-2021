@@ -3,8 +3,11 @@ module Day2.B where
 import Day2.Input (input, Command (Fwd, Down, Up))
 import Day2.A (fwdness)
 
-answer :: Int
-answer = fwdness input * depth input
+answer :: IO Int
+answer = do
+  fwdness' <- fwdness <$> input
+  depth' <- depth <$> input
+  return $ fwdness' * depth'
 
 depth :: [Command] -> Int
 depth = fst . foldl f (0, 0)

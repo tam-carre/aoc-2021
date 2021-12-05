@@ -3,8 +3,8 @@ module Day1.B where
 import Day1.Input (input)
 import Day1.A (countIncreases)
 
-answer :: Int
-answer = countIncreases . toThreeItemSums $ input
+answer :: IO Int
+answer = countIncreases . toThreeItemSums <$> input
 
 toThreeItemSums :: [Int] -> [Int]
 toThreeItemSums []         = []

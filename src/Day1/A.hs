@@ -2,8 +2,8 @@ module Day1.A where
 
 import Day1.Input (input)
 
-answer :: Int
-answer = countIncreases input
+answer :: IO Int
+answer = countIncreases <$> input
 
 countIncreases :: [Int] -> Int
 countIncreases []     = 0
