@@ -21,7 +21,7 @@ binaryStringToDec :: String -> Int
 binaryStringToDec = foldl f 0
   where f dec bit = dec * 2 + digitToInt bit
 
-columns :: [String] -> [String]
+columns :: [[a]] -> [[a]]
 columns = transpose
 
 mostCommon :: Ord a => [a] -> a
