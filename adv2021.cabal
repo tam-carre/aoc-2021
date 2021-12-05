@@ -31,6 +31,8 @@ library
       Day2.A
       Day2.B
       Day2.Input
+      Day3.A
+      Day3.Input
   other-modules:
       Paths_adv2021
   hs-source-dirs:
