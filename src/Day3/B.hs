@@ -17,12 +17,11 @@ co2Scrub = binaryStringToDec . foldByCriteria epsilon'
 
 foldByCriteria :: ([String] -> String) -> [String] -> String
 foldByCriteria criteria = foldByCriteria' 0
-  where
-    foldByCriteria' pos nums =
-      if length filtered == 1
-        then head filtered
-        else foldByCriteria' (pos + 1) filtered
-        where filtered = filterByCriteria criteria pos nums
+  where foldByCriteria' pos nums =
+          let filtered = filterByCriteria criteria pos nums
+          in if length filtered == 1
+               then head filtered
+               else foldByCriteria' (pos + 1) filtered
 
 filterByCriteria :: ([String] -> String) -> Int -> [String] -> [String]
 filterByCriteria criteria pos nums = filter f nums
