@@ -31,7 +31,6 @@ library
       Day2.A
       Day2.B
       Day2.Input
-      Utils.General
   other-modules:
       Paths_adv2021
   hs-source-dirs:

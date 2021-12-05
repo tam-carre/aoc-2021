@@ -1,15 +1,14 @@
 module Day2.B where
 
-import Day2.Input (input, Command (Forward, Down, Up))
-import Day2.A (forwardness)
-import Utils.General (fst3)
+import Day2.Input (input, Command (Fwd, Down, Up))
+import Day2.A (fwdness)
 
 answer :: Int
-answer = forwardness input * depth input
+answer = fwdness input * depth input
 
 depth :: [Command] -> Int
-depth = fst3 . foldl f ( 0, 0, [] )
+depth = fst . foldl f ( 0, 0 )
   where
-    f ( depth, aim, cmds ) (Down n) = ( depth, aim + n, cmds ++ [Down n] )
-    f ( depth, aim, cmds ) (Up n) = ( depth, aim - n, cmds ++ [Up n] )
-    f ( depth, aim, cmds ) (Forward n) = ( depth + n * aim, aim, cmds ++ [Forward n] )
+    f ( depth, aim ) (Down n) = ( depth, aim + n )
+    f ( depth, aim ) (Up n) = ( depth, aim - n )
+    f ( depth, aim ) (Fwd n) = ( depth + n * aim, aim )

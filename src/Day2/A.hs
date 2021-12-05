@@ -1,14 +1,14 @@
 module Day2.A where
 
-import Day2.Input (input, Command (Forward, Down, Up))
+import Day2.Input (input, Command (Fwd, Down, Up))
 
 answer :: Int
-answer = forwardness input * depth input
+answer = fwdness input * depth input
 
-forwardness :: [Command] -> Int
-forwardness = foldl f 0
-  where f forwardness (Forward n) = forwardness + n
-        f forwardness _ = forwardness
+fwdness :: [Command] -> Int
+fwdness = foldl f 0
+  where f fwdness (Fwd n) = fwdness + n
+        f fwdness _ = fwdness
 
 depth :: [Command] -> Int
 depth = foldl f 0
