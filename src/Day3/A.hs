@@ -9,10 +9,16 @@ answer :: Int
 answer = gamma input * epsilon input
 
 gamma :: [String] -> Int
-gamma = binaryStringToDec . map mostCommon . columns
+gamma = binaryStringToDec . gamma'
+
+gamma' :: [String] -> String
+gamma' = map mostCommon . columns
 
 epsilon :: [String] -> Int
-epsilon = binaryStringToDec . map (reverseBit . mostCommon) . columns
+epsilon = binaryStringToDec . epsilon'
+
+epsilon':: [String] -> String
+epsilon' = map reverseBit . gamma'
 
 reverseBit :: Char -> Char
 reverseBit bit = if bit == '0' then '1' else '0'
