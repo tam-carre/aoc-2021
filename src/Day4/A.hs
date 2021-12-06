@@ -8,11 +8,14 @@ import Data.Ord
 
 answer :: IO Int
 answer = do
-  bingos <- map toCrossable <$> bingos
-  draws' <- draws
-  let completedBingos = map (finishBingo draws') bingos
+  bingos <- bingos
+  draws  <- draws
+  let completedBingos = finishBingos draws bingos
       winner          = minimumBy (comparing fst) completedBingos
   return $ snd winner
+
+finishBingos :: [Int] -> [[[Int]]] -> [(Int, Int)]
+finishBingos draws = map (finishBingo draws . toCrossable)
 
 finishBingo :: [Int] -> [[(Int, Bool)]] -> (Int, Int)
 finishBingo draws bingo = toTurnsAndScore . foldl f (0, bingo, 0) $ draws

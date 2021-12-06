@@ -35,6 +35,7 @@ library
       Day3.B
       Day3.Input
       Day4.A
+      Day4.B
       Day4.Input
   other-modules:
       Paths_adv2021
