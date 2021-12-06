@@ -4,9 +4,8 @@ import Day2.Input (input, Command (Fwd, Down, Up))
 
 answer :: IO Int
 answer = do
-  fwdness' <- fwdness <$> input
-  depth'   <- depth <$> input
-  return $ fwdness' * depth'
+  cmds <- input
+  return $ fwdness cmds * depth cmds
 
 fwdness :: [Command] -> Int
 fwdness = foldl f 0

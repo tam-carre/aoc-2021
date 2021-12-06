@@ -2,12 +2,12 @@ module Day2.B where
 
 import Day2.Input (input, Command (Fwd, Down, Up))
 import Day2.A (fwdness)
+import Data.Functor
 
 answer :: IO Int
 answer = do
-  fwdness' <- fwdness <$> input
-  depth'   <- depth <$> input
-  return $ fwdness' * depth'
+  cmds <- input
+  return $ fwdness cmds * depth cmds
 
 depth :: [Command] -> Int
 depth = fst . foldl f (0, 0)

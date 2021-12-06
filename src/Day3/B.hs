@@ -5,9 +5,8 @@ import Day3.A (binaryStringToDec, gamma', epsilon')
 
 answer :: IO Int
 answer = do
-  oxygenRating <- oxygenGen <$> input
-  co2Rating    <- co2Scrub <$> input
-  return $ oxygenRating * co2Rating
+  report <- input
+  return $ oxygenGen report * co2Scrub report
 
 oxygenGen :: [String] -> Int
 oxygenGen = binaryStringToDec . foldByCriteria gamma'

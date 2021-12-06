@@ -7,9 +7,8 @@ import Data.Ord
 
 answer :: IO Int
 answer = do
-  gammaRate   <- gamma <$> input
-  epsilonRate <- epsilon <$> input
-  return $ gammaRate * epsilonRate
+  report <- input
+  return $ gamma report * epsilon report
 
 gamma :: [String] -> Int
 gamma = binaryStringToDec . gamma'
