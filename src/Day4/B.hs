@@ -5,6 +5,6 @@ import Day4.A (finishBingos)
 import Data.List
 import Data.Ord
 
--- Doesn't work. Don't know why.
+-- Incorrect answer. Don't know why.
 answer :: IO Int
 answer = snd . maximumBy (comparing fst) <$> (finishBingos <$> draws <*> bingos)
