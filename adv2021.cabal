@@ -40,6 +40,9 @@ library
       Paths_adv2021
   hs-source-dirs:
       src
+  default-extensions:
+      ViewPatterns
+      TupleSections
   build-depends:
       base >=4.7 && <5
     , split
@@ -51,7 +54,7 @@ executable adv2021-exe
       Paths_adv2021
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wno-incomplete-patterns
   build-depends:
       adv2021
     , base >=4.7 && <5

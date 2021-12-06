@@ -25,6 +25,9 @@ dependencies:
 
 library:
   source-dirs: src
+  default-extensions:
+    - ViewPatterns
+    - TupleSections
 
 executables:
   adv2021-exe:
@@ -34,6 +37,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -Wno-incomplete-patterns
     dependencies:
     - adv2021
 
