@@ -10,8 +10,8 @@ answer :: IO Int
 answer = do
   bingos <- map toCrossable <$> bingos
   draws' <- draws
-  let finisheds = map (finishBingo draws') bingos
-      winner    = minimumBy (comparing fst) finisheds
+  let completedBingos = map (finishBingo draws') bingos
+      winner          = minimumBy (comparing fst) completedBingos
   return $ snd winner
 
 finishBingo :: [Int] -> [[(Int, Bool)]] -> (Int, Int)
