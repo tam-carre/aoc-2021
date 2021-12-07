@@ -7,4 +7,7 @@ import Data.Ord
 
 -- Incorrect answer. Don't know why.
 answer :: IO Int
-answer = snd . maximumBy (comparing fst) <$> (finishBingos <$> draws <*> bingos)
+answer = snd <$> (loser <$> draws <*> bingos)
+
+loser :: [Int] -> [[[Int]]] -> (Int, Int)
+loser draws = minimumBy (comparing fst) . finishBingos draws

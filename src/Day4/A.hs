@@ -7,12 +7,10 @@ import Data.List
 import Data.Ord
 
 answer :: IO Int
-answer = do
-  bingos <- bingos
-  draws  <- draws
-  let completedBingos = finishBingos draws bingos
-      winner          = minimumBy (comparing fst) completedBingos
-  return $ snd winner
+answer = snd <$> (winner <$> draws <*> bingos)
+
+winner :: [Int] -> [[[Int]]] -> (Int, Int)
+winner draws = minimumBy (comparing fst) . finishBingos draws
 
 finishBingos :: [Int] -> [[[Int]]] -> [(Int, Int)]
 finishBingos draws = map (finishBingo draws . toCrossable)
